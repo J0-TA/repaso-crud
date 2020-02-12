@@ -39,6 +39,16 @@ router.get("/", (req, res) => {
   });
 });
 
+router.post("/delete/:id?", (req,res) =>{
+    Coaster.findOneAndDelete({_id: req.body.id})
+    .then(() => {
+      res.redirect('/coasters')
+    })
+    .catch(() => {
+        next()
+      })
+})
+
 
 
 
