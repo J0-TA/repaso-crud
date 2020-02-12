@@ -7,9 +7,13 @@ router.get("/new", (req, res) => {
   });
 
 router.post("/new", (req, res) => {
-    Park.create({ name: req.body.name, description: req.body.description, active: true })
+    Park.create({ 
+        name: req.body.name, 
+        description: req.body.description, 
+        active: true 
+    })
     .then(() => {
-    res.redirect("/new")
+    res.redirect("/parks/new")
     })
 });
 
